@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, Suspense } from 'react';
-import Jotai from './Jotai';
-import RQuery from './RQuery';
+import Jotai from '../Jotai';
+import RQuery from '../RQuery';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient({});
@@ -16,11 +16,10 @@ export default ({ text = 'Home Button', onClick, inputValue }) => {
     return () => console.log('Button.js: unmounted.');
   }, []);
 
-  console.log('Button.js: rendered.');
 
   return (
     <>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<div>loading.222222222..</div>}>
         <Jotai />
         <QueryClientProvider client={queryClient}>
           <RQuery />

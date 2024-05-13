@@ -1,0 +1,22 @@
+/* Reset CSS */
+
+/* Remove default margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set box-sizing to border-box for all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Add more reset styles as needed */
+
+/* Your custom styles go below this line */
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}

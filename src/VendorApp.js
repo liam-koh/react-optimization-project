@@ -2,14 +2,14 @@ import Button from './components/Button';
 import React from 'react';
 import './index.css';
 
-const App = (props) => {
-  console.log('App props:', props);
+const VendorApp = (props) => {
+  console.log('VendorApp props:', props);
   return (
     <div>
-      <p className='name'>App</p>
+      <p className='name'>VendorApp</p>
       <Button />
     </div>
   );
 };
 
-export default App;
+export default VendorApp;
