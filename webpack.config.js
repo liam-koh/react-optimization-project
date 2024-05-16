@@ -7,27 +7,28 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { split } = require('lodash');
 
 module.exports = {
+  entry: './src/index.js',
   // app, vendor를 각각 번들로 생성 (chunk로 부름)
-  entry: {
-    app: './src/App.js',
-    vendor: './src/VendorApp.js',
-    // app: {
-    //   import: './src/App.js',
-    //   dependOn: 'shared',
-    // },
-    // vendor: {
-    //   import: './src/VendorApp.js',
-    //   dependOn: 'shared',
-    // },
-    // shared: 'lodash',
-  },
+  // entry: {
+  //   app: './src/App.js',
+  //   vendor: './src/VendorApp.js',
+  //   // app: {
+  //   //   import: './src/App.js',
+  //   //   dependOn: 'shared',
+  //   // },
+  //   // vendor: {
+  //   //   import: './src/VendorApp.js',
+  //   //   dependOn: 'shared',
+  //   // },
+  //   // shared: 'lodash',
+  // },
   mode: 'development',
   devtool: false,
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    port: 3002,
+    port: 4000,
   },
   optimization: {
     minimize: false,
@@ -57,13 +58,24 @@ module.exports = {
         },
       },
       {
+        test: /\.(png|jpg|gif|ico)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              publicPath: path.join(__dirname, 'dist'),
+            },
+          },
+        ],
+      },
+      {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),

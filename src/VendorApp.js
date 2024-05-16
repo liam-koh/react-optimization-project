@@ -6,7 +6,7 @@ const VendorApp = (props) => {
   console.log('VendorApp props:', props);
   return (
     <div>
-      <p className='name'>VendorApp</p>
+      <p className='vendor-name'>VendorApp</p>
       <Button />
     </div>
   );
